@@ -1,0 +1,96 @@
+﻿##########             项目制作心得          ##########
+
+
+项目名称：NJU足球赛程管理系统
+项目目的：这是数据库课程期末大作业，目的是练习数据库操作
+项目环境：Sql Server 2018 + Visual Studio 2019
+项目编程语言：Sql Server语法 + C#.net
+
+-
+制作人：艾尔肯
+合作人：asj
+日期：2020.12.18
+
+
+项目描述：
+	提供针对NJU足球赛事的赛程查询、增加、修改、删除等功能，方便同学们自助关注NJU足球赛事。
+	程序界面由Visual Studio 2019 利用C#语言开发，后端数据则保存在Sql Server 2018 中，在VS中通过连接和SQL语句进行操纵。
+
+
+
+好了，该介绍得也就这些了，下面都是制作这个程序时踩过的坑和解决方案、制作心得等。(时间顺序排列)
+
+
+坑00: 他妈的!
+
+	为什么这个坑没有序号，而且还让我爆粗口了？ 因为，我tmd自己摸索了好几天，遇到那么多坑，真的好可惜没有早点看到B站上这个C#教学视频！！！
+	
+	解决方案：
+	如果有人看到我里，那就恭喜您，真的能少走弯路了，包括我下面遇到的 坑01-坑05  ！！！
+	时间就是金钱，快看看这个视频吧！
+	https://www.bilibili.com/video/BV1Wt411Z76N?p=1
+
+
+坑01：
+
+	连接数据库时，需要检查服务器名是否正确，一般服务器名是个目标数据库的ip，如果是本地服务器的话，网上说可以用一个点（.）或者local，但是没成功！
+
+	解决方案：我将服务器名改成Sql Server 2018中服务器属性中的名字（我的笔记本电脑的名字+SQLEXPRESS）才连接成功。例如：LAPTOP-AGT30UAM\\SQLEXPRESS
+
+	参考网址：http://c.biancheng.net/view/3010.html
+
+坑02：
+	
+	C#窗体的尺寸、最大化、最小化、图标Icon之类的才哪里改？
+
+	解决方案：
+	方法一：选中窗体，在右边属性窗口里更改
+	方法二：在页面配置文件（.xaml）里写相应代码，例如：
+	<Window x:Class="NJU足球赛程管理系统.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NJU足球赛程管理系统"
+        mc:Ignorable="d"
+        Title="NJU足球赛程管理系统" Height="600" Width="800" MinWidth="800" MinHeight="600" Left="200" Top="100" MaxWidth="800" MaxHeight="600" 
+        WindowState="Normal" ShowInTaskbar="True" ResizeMode="CanMinimize" Icon = "./images/zuqiu.png" WindowStartupLocation="CenterScreen"
+        >
+	注意：如果不知道Window这个类还有哪些属性和方法，则可以选中Window这个类，按F12，进入该类的声明查看（这个很重要！以后遇到任何陌生的类，都可以查看其声明）
+
+
+坑03：
+	C# 窗体之间如何实现跳转？
+
+	解决方案：
+	在需要跳转的地方可以用这个代码进行跳跃
+
+	AddWindow aw = new AddWindow();  //先声明需要跳转的窗体类的实例对象
+    this.Hide();                    //隐藏当前窗体，如过不是系统初始窗体，也可以用this.close()关闭掉,因为初始对话框被关闭的话程序就退出了（当然这个也是有办法解决的）。
+    aw.ShowDialog();                //跳转，ShowDialog()和Show()二者的区别要注意，前者为模态对话框（跳转后原对话框不可操作），后者为非模态（跳转后原对话框仍可操作）。
+    this.Show();                    //跳转后的对话框
+
+
+	这里如果我说的不清楚还可以上网查一下，我留个参考网址：https://www.cnblogs.com/zhiaiyaya/archive/2014/03/12/3595275.html
+
+坑04：
+	Sql Server中填入数据时直接从Exel表格中导入
+
+	解决方案：
+	非常简单，所以就放一下我参考的网址：https://blog.csdn.net/marko_zheng/article/details/86005538
+
+坑05：
+	这个可以说是本次项目目前最大的坑了！
+	如何将界面中的控件和后台数据绑定，实现后台数据实时更新界面上控件的内容。
+	经过一整天的探索，我现在确定了问题的关键：数据绑定
+
+	解决方案：
+	本次项目使用的界面框架为C#中的WPF，比传统的WinForm强大、高级，在成熟的程序开发中大家都会尽量避免在后台数据更新时直接操纵前端界面控件，取而代之的是将后台数据和前端界面控件进行数据绑定。
+	数据绑定！数据绑定！数据绑定！
+	真的很重要，且很强大！
+	多的话不说了，我就直接放我寻找了一整天后觉得最有用的参考网址吧！看了能少走弯路，加油！
+	https://www.bilibili.com/video/BV1Wt411Z76N?p=1
+	https://docs.microsoft.com/zh-cn/visualstudio/xaml-tools/walkthrough-binding-to-data-in-xaml-designer?view=vs-2019
+
+
+
