@@ -22,7 +22,17 @@
                     <Image Source="./images/shanchu.png"></Image>
                 </Button>
             </ToolBar>
-            <DataGrid DockPanel.Dock="Top"></DataGrid>
+            <DataGrid IsReadOnly="True" DockPanel.Dock="Top">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="比赛类型" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛轮次" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛日期" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛时间" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛场地" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛队伍一" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛队伍二" Binding="{Binding Name}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </DockPanel>
     </Grid>
 
