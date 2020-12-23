@@ -17,6 +17,9 @@
                 </Rectangle.Fill>
             </Rectangle>
             <ToolBar DockPanel.Dock="Top" Height="50">
+                <Button x:Name="btnSearch" Click="btnSearch_Click" ToolTip="查询">
+                    <Image Source="./images/chaxun.png"></Image>
+                </Button>
                 <Button x:Name="btnAdd" Click="btnAdd_Click" ToolTip="添加">
                     <Image Source="./images/zengjia.png"></Image>
                 </Button>

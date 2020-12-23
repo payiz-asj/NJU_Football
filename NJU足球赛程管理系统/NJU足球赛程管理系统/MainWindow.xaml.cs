@@ -24,7 +24,8 @@ namespace NJU足球赛程管理系统
     {
         public MainWindow()
         {
-            InitializeComponent();          
+            InitializeComponent();  
+            
         }
 
         private void Button_Click_connect_test(object sender, RoutedEventArgs e)
@@ -62,10 +63,6 @@ namespace NJU足球赛程管理系统
             this.Hide();
             sw.ShowDialog();
             this.Show();
-        }
-
-     
-
-       
+        }     
     }
 }

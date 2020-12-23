@@ -61,14 +61,16 @@ namespace NJU足球赛程管理系统
                     match_time = @match_time,
                     match_ground = @match_ground,
                     team_one = @team_one,
-                    team_two =@team_two",
+                    team_two =@team_two 
+                    where ID=@Id",
                     new SqlParameter("@match_type",one_match.match_type),
                     new SqlParameter("@match_order", one_match.match_order),
                     new SqlParameter("@match_day", ToDBValue(one_match.match_day)),
                     new SqlParameter("@match_time", one_match.match_time),
                     new SqlParameter("@match_ground", one_match.match_ground),
                     new SqlParameter("@team_one", one_match.team_one),
-                    new SqlParameter("@team_two", one_match.team_two)
+                    new SqlParameter("@team_two", one_match.team_two),
+                    new SqlParameter("@Id", one_match.ID)
                     );
         }
         //将返回结果复制到类

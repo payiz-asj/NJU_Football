@@ -40,7 +40,13 @@ namespace NJU足球赛程管理系统
                 FootballMatch one_match = new Football_MatchDAL().Get_ByID(EditingID);
                 txt_type.Text = one_match.match_type;
                 txt_order.Text = one_match.match_order;
-                date_date.SelectedDate = (DateTime)one_match.match_day;
+                if (one_match.match_day == null)
+                {
+                    date_date.SelectedDate = null;
+                }
+                else
+                    date_date.SelectedDate = (DateTime)one_match.match_day;
+
                 txt_time.Text = one_match.match_time;
                 txt_ground.Text = one_match.match_ground;
                 txt_team_one.Text = one_match.team_one;

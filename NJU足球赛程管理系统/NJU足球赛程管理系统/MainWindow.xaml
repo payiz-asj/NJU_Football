@@ -9,24 +9,45 @@
         WindowState="Normal" ShowInTaskbar="True" ResizeMode="CanMinimize" Icon = "./images/zuqiu.png" WindowStartupLocation="CenterScreen"
         >
 
+    <Window.Resources>
+
+        <Style x:Key="start_button_style" TargetType="Button">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="images/homepage.png"/>
         </Grid.Background>
-        <Label Content="NJU足球赛程管理系统"  HorizontalAlignment="Left" Margin="234,15,0,0" VerticalAlignment="Top" Height="40" Width="246" FontFamily="宋体" FontWeight="Bold" FontSize="24"/>
+        <Label Content="NJU足球赛程管理系统"  HorizontalAlignment="Left" Margin="200,34,0,0" VerticalAlignment="Top" Height="68" Width="363" FontFamily="宋体" FontSize="36" FontWeight="Bold"/>
 
-        <Button x:Name="btn_enter" ToolTip="进入赛程列表"  HorizontalAlignment="Left" Margin="271,272,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_enter" Padding="0" BorderThickness="0" >
+        <Button x:Name="btn_enter"  ToolTip="进入赛程列表" Style="{StaticResource start_button_style}" HorizontalAlignment="Left" Margin="271,272,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_enter"  IsDefault="True">
             <Button.Background>
                 <ImageBrush ImageSource="jinru.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn_connect_test" ToolTip="数据库连接测试"  HorizontalAlignment="Left" Margin="166,342,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_connect_test" Padding="0" BorderThickness="0">
+        <Button x:Name="btn_connect_test" ToolTip="数据库连接测试"  Style="{StaticResource start_button_style}" HorizontalAlignment="Left" Margin="166,342,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_connect_test" >
             <Button.Background>
                 <ImageBrush ImageSource="images/lianjie.png"/>
             </Button.Background>
-
-
-        </Button>
+        </Button>     
 
     </Grid>
 </Window>
