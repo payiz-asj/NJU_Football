@@ -10,7 +10,7 @@ namespace NJU足球赛程管理系统
     class FootballMatch:INotifyPropertyChanged
     {
         //对于可空列，要注意int?的问题
-        public long id { get; set; }
+        public long ID { get; set; }
         public string match_type { get; set; }
         public string match_order { get; set; }
         public DateTime? match_day { get; set; }

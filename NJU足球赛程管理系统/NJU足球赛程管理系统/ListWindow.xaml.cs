@@ -33,7 +33,37 @@ namespace NJU足球赛程管理系统
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //窗口加载函数
+            Football_MatchDAL dal = new Football_MatchDAL();
+            grid_items.ItemsSource = dal.GetAll();
 
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            FootballMatch chosen_one = (FootballMatch)grid_items.SelectedItem;
+            if(chosen_one==null)
+            {
+                MessageBox.Show("请选择要删除的一行");
+                return;
+            }         
+            if (MessageBox.Show("确认删除这条数据吗？","您正在尝试删除",MessageBoxButton.YesNo)==MessageBoxResult.Yes)
+            {
+                Football_MatchDAL.DeleteById(chosen_one.ID);
+                //更新列表
+                Football_MatchDAL dal = new Football_MatchDAL();
+                grid_items.ItemsSource = dal.GetAll();
+            }
         }
     }
 }

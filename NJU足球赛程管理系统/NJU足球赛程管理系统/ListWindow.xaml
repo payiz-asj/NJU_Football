@@ -12,17 +12,17 @@
     <Grid>
         <DockPanel>
             <ToolBar DockPanel.Dock="Top" Height="40">
-                <Button x:Name="btnAdd">
+                <Button x:Name="btnAdd" Click="btnAdd_Click">
                     <Image Source="./images/zengjia.png"></Image>
                 </Button>
-                <Button x:Name="btnEdit">
+                <Button x:Name="btnEdit" Click="btnEdit_Click">
                     <Image Source="./images/xiugai.png"></Image>
                 </Button>
-                <Button x:Name="btnDelete">
+                <Button x:Name="btnDelete" Click="btnDelete_Click">
                     <Image Source="./images/shanchu.png"></Image>
                 </Button>
             </ToolBar>
-            <DataGrid IsReadOnly="True" DockPanel.Dock="Top">
+            <DataGrid x:Name="grid_items" IsReadOnly="True" AutoGenerateColumns="False" DockPanel.Dock="Top">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="比赛类型" Width="100" Binding="{Binding match_type}"></DataGridTextColumn>
                     <DataGridTextColumn Header="比赛轮次" Width="100" Binding="{Binding match_order}"></DataGridTextColumn>
