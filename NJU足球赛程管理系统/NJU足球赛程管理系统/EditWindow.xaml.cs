@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace NJU足球赛程管理系统
 {
     /// <summary>
-    /// ModifyWindow.xaml 的交互逻辑
+    /// EditWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class ModifyWindow : Window
+    public partial class EditWindow : Window
     {
-        public ModifyWindow()
+        public EditWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

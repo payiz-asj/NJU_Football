@@ -59,17 +59,17 @@ namespace NJU足球赛程管理系统
         {
             //这里是增加按钮点击事件
             //跳转到其他页面
-            AddWindow aw = new AddWindow();
-            this.Hide();
-            aw.ShowDialog();
-            this.Show();
+            //AddWindow aw = new AddWindow();
+            //this.Hide();
+            //aw.ShowDialog();
+            //this.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             //这里是查询按钮点击事件
             //跳转到其他页面
-            SearchWindow sw = new SearchWindow();            
+            ListWindow sw = new ListWindow();            
             this.Hide();
             sw.ShowDialog();
             this.Show();
@@ -79,20 +79,20 @@ namespace NJU足球赛程管理系统
         {
             //这里是修改按钮点击事件
             //跳转到其他页面
-            ModifyWindow mw = new ModifyWindow();
-            this.Hide();
-            mw.ShowDialog();
-            this.Show();
+            //ModifyWindow mw = new ModifyWindow();
+            //this.Hide();
+            //mw.ShowDialog();
+            //this.Show();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             //这里是删除按钮点击事件
             //跳转到其他页面
-            DeleteWindow dw = new DeleteWindow();
-            this.Hide();
-            dw.ShowDialog();
-            this.Show();
+            //DeleteWindow dw = new DeleteWindow();
+            //this.Hide();
+            //dw.ShowDialog();
+            //this.Show();
         }
     }
 }
