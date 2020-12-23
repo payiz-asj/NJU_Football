@@ -37,7 +37,7 @@ namespace NJU足球赛程管理系统
         }
 
         //插入一条数据,因为列很多，所以形参为一个FootballMatch类
-        public static void Insert(FootballMatch one_match)
+        public void Insert(FootballMatch one_match)
         {
             SqlHelper.ExcuteNonQuery(@"insert into T_match(match_type,match_order,match_day,match_time,match_ground,team_one,team_two) 
                     values(@match_type,@match_order,@match_day,@match_time,@match_ground,@team_one,@team_two)",
@@ -52,7 +52,7 @@ namespace NJU足球赛程管理系统
         }
 
         //修改更新
-        public static void Update(FootballMatch one_match)
+        public void Update(FootballMatch one_match)
         {
             SqlHelper.ExcuteNonQuery(@"update T_match(match_type,match_order,match_day,match_time,match_ground,team_one,team_two) 
                     values(@match_type,@match_order,@match_day,@match_time,@match_ground,@team_one,@team_two)",
@@ -86,7 +86,7 @@ namespace NJU足球赛程管理系统
 
 
         //查找
-        public static FootballMatch Get_one_match_ByID(long id)
+        public FootballMatch Get_ByID(long id)
         {
             DataTable table= SqlHelper.ExecuteDataTable("select * from T_match where ID=@Id",
                 new SqlParameter("@Id", id));

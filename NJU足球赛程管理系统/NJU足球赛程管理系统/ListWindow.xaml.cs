@@ -41,12 +41,33 @@ namespace NJU足球赛程管理系统
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            EditWindow ed = new EditWindow();
+            ed.Isinsert = true;
+            if (ed.ShowDialog() == true)
+            {
+                //更新列表
+                Football_MatchDAL dal = new Football_MatchDAL();
+                grid_items.ItemsSource = dal.GetAll();
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            FootballMatch chosen_one = (FootballMatch)grid_items.SelectedItem;           
+            if (chosen_one == null)
+            {
+                MessageBox.Show("请选择要编辑的一行");
+                return;
+            }
+            EditWindow ed = new EditWindow();
+            ed.Isinsert = false;
+            ed.EditingID = chosen_one.ID;
+            if (ed.ShowDialog() == true)
+            {
+                //更新列表
+                Football_MatchDAL dal = new Football_MatchDAL();
+                grid_items.ItemsSource = dal.GetAll();
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
