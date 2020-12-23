@@ -13,7 +13,8 @@
 
 项目描述：
 	提供针对NJU足球赛事的赛程查询、增加、修改、删除等功能，方便同学们自助关注NJU足球赛事。
-	程序界面由Visual Studio 2019 利用C#语言开发，后端数据则保存在Sql Server 2018 中，在VS中通过连接和SQL语句进行操纵。
+	程序界面由Visual Studio 2019 利用C#.Net语言WPF框架开发，
+	后端数据则保存在Sql Server Express数据库中，利用Sql Server 2018管理或者在VS中通过ADO.Net技术进行连接和操纵。
 
 
 
@@ -40,9 +41,23 @@
 	http://c.biancheng.net/view/3010.html
 	https://blog.csdn.net/yenange/article/details/77026214
 	https://www.bilibili.com/video/BV1Wt411Z76N?p=15
+	http://c.biancheng.net/view/3017.html
 
 	此外，链接数据库，进行数据库语句执行时，一定要注意异常处理和资源释放的问题！
 	可以使用try catch ,但更推荐用using关键字来释放资源！（非常重要！非常重要！非常重要！）
+
+	此外，数据库连接字段可以放到项目配置文件中，这样就不用每次都重写连接字段，项目管理、移植起来更方便
+	具体做法:
+	1.项目根目录添加一个“应用程序配置文件”，名字为App.config，通常WPF项目创建会自动生成
+	2.App.config中添加节点，给add起一个name
+	3.项目添加对System.configuration的引用（可以理解为开发包，头文件）
+	4.使用ConfigurationManager类（System.configuration里面的）来获取配置文件中的字段
+	5.例如：string connStr = ConfigurationManager.ConnectionStrings["dbConnStr"].ConnectionString;
+
+	此外，数据库的链接查询操作也不用每次都重新写一遍，更高级的用法是用一个类来封装，我们称之为SqlHelper类
+	具体做法可参考：https://www.bilibili.com/video/BV1Wt411Z76N?p=22
+
+
 
 坑02：
 	
