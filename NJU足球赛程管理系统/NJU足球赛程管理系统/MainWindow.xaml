@@ -8,19 +8,25 @@
         Title="NJU足球赛程管理系统" Height="600" Width="800" MinWidth="800" MinHeight="600" Left="200" Top="100" MaxWidth="800" MaxHeight="600" 
         WindowState="Normal" ShowInTaskbar="True" ResizeMode="CanMinimize" Icon = "./images/zuqiu.png" WindowStartupLocation="CenterScreen"
         >
-    <Grid>
-        <Label Content="NJU足球赛程管理系统" HorizontalAlignment="Left" Margin="234,15,0,0" VerticalAlignment="Top" Height="40" Width="246" FontFamily="宋体" FontWeight="Bold" FontSize="24"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="266,348,0,0" VerticalAlignment="Top" Width="50" Source="./images/xiugai.png"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="266,421,0,0" VerticalAlignment="Top" Width="50" Source="./images/shanchu.png"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="266,270,0,0" VerticalAlignment="Top" Width="50" Source="./images/zengjia.png" RenderTransformOrigin="0.444,-0.108"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="266,200,0,0" VerticalAlignment="Top" Width="50" Source="./images/chaxun.png" RenderTransformOrigin="-0.092,0.238"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="266,126,0,0" VerticalAlignment="Top" Width="50" Source="./images/lianjie.png"/>
-        <Button Content="增加" HorizontalAlignment="Left" Margin="340,272,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="50" Width="120" Click="Button_Click_1"/>
-        <Button Content="修改" HorizontalAlignment="Left" Margin="340,346,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="50" Width="120" Click="Button_Click_3"/>
-        <Button Content="删除" HorizontalAlignment="Left" Margin="340,418,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="50" Width="120" Click="Button_Click_4"/>
-        <Button Content="查询" HorizontalAlignment="Left" Margin="340,196,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="50" Width="120" Click="Button_Click_2"/>
-        <Button Content="测试连接" HorizontalAlignment="Left" Margin="340,125,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="50" Width="120" Click="Button_Click"/>
 
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/homepage.png"/>
+        </Grid.Background>
+        <Label Content="NJU足球赛程管理系统"  HorizontalAlignment="Left" Margin="234,15,0,0" VerticalAlignment="Top" Height="40" Width="246" FontFamily="宋体" FontWeight="Bold" FontSize="24"/>
+
+        <Button x:Name="btn_enter" ToolTip="进入赛程列表"  HorizontalAlignment="Left" Margin="271,272,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_enter" Padding="0" BorderThickness="0" >
+            <Button.Background>
+                <ImageBrush ImageSource="jinru.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_connect_test" ToolTip="数据库连接测试"  HorizontalAlignment="Left" Margin="166,342,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_connect_test" Padding="0" BorderThickness="0">
+            <Button.Background>
+                <ImageBrush ImageSource="images/lianjie.png"/>
+            </Button.Background>
+
+
+        </Button>
 
     </Grid>
 </Window>

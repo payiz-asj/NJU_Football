@@ -11,14 +11,19 @@
         >
     <Grid>
         <DockPanel>
-            <ToolBar DockPanel.Dock="Top" Height="40">
-                <Button x:Name="btnAdd" Click="btnAdd_Click">
+            <Rectangle DockPanel.Dock="Top" Height="100">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="./images/maradona.png" Stretch="UniformToFill"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <ToolBar DockPanel.Dock="Top" Height="50">
+                <Button x:Name="btnAdd" Click="btnAdd_Click" ToolTip="添加">
                     <Image Source="./images/zengjia.png"></Image>
                 </Button>
-                <Button x:Name="btnEdit" Click="btnEdit_Click">
+                <Button x:Name="btnEdit" Click="btnEdit_Click" ToolTip="编辑">
                     <Image Source="./images/xiugai.png"></Image>
                 </Button>
-                <Button x:Name="btnDelete" Click="btnDelete_Click">
+                <Button x:Name="btnDelete" Click="btnDelete_Click" ToolTip="删除">
                     <Image Source="./images/shanchu.png"></Image>
                 </Button>
             </ToolBar>
@@ -30,7 +35,7 @@
                     <DataGridTextColumn Header="比赛时间" Width="100" Binding="{Binding match_time}"></DataGridTextColumn>
                     <DataGridTextColumn Header="比赛场地" Width="100" Binding="{Binding match_ground}"></DataGridTextColumn>
                     <DataGridTextColumn Header="比赛队伍一" Width="150" Binding="{Binding team_one}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="比赛队伍二" Width="150" Binding="{Binding team_one}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛队伍二" Width="150" Binding="{Binding team_two}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

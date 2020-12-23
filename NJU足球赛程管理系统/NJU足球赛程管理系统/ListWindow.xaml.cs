@@ -56,7 +56,7 @@ namespace NJU足球赛程管理系统
             FootballMatch chosen_one = (FootballMatch)grid_items.SelectedItem;           
             if (chosen_one == null)
             {
-                MessageBox.Show("请选择要编辑的一行");
+                MessageBox.Show("请选择要编辑的一行","提醒", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             EditWindow ed = new EditWindow();
@@ -75,10 +75,10 @@ namespace NJU足球赛程管理系统
             FootballMatch chosen_one = (FootballMatch)grid_items.SelectedItem;
             if(chosen_one==null)
             {
-                MessageBox.Show("请选择要删除的一行");
+                MessageBox.Show("请选择要删除的一行","提醒",MessageBoxButton.OK,MessageBoxImage.Information);
                 return;
             }         
-            if (MessageBox.Show("确认删除这条数据吗？","您正在尝试删除",MessageBoxButton.YesNo)==MessageBoxResult.Yes)
+            if (MessageBox.Show("确认删除这条数据吗？","提醒",MessageBoxButton.YesNo, MessageBoxImage.Information) ==MessageBoxResult.Yes)
             {
                 Football_MatchDAL.DeleteById(chosen_one.ID);
                 //更新列表

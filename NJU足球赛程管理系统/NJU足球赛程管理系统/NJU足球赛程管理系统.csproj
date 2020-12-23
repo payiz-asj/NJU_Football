@@ -155,5 +155,17 @@
   <ItemGroup>
     <Resource Include="项目制作心得.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\maradona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\messi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\homepage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="jinru.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

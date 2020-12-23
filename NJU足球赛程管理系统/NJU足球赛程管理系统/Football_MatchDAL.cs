@@ -54,9 +54,15 @@ namespace NJU足球赛程管理系统
         //修改更新
         public void Update(FootballMatch one_match)
         {
-            SqlHelper.ExcuteNonQuery(@"update T_match(match_type,match_order,match_day,match_time,match_ground,team_one,team_two) 
-                    values(@match_type,@match_order,@match_day,@match_time,@match_ground,@team_one,@team_two)",
-                    new SqlParameter("@match_type", one_match.match_type),
+            SqlHelper.ExcuteNonQuery(@"UPDATE T_match
+                    SET match_type = @match_type,
+                    match_order = @match_order,
+                    match_day = @match_day,
+                    match_time = @match_time,
+                    match_ground = @match_ground,
+                    team_one = @team_one,
+                    team_two =@team_two",
+                    new SqlParameter("@match_type",one_match.match_type),
                     new SqlParameter("@match_order", one_match.match_order),
                     new SqlParameter("@match_day", ToDBValue(one_match.match_day)),
                     new SqlParameter("@match_time", one_match.match_time),
@@ -106,14 +112,15 @@ namespace NJU足球赛程管理系统
 
 
         }
-
-        public List<FootballMatch> GetAll()
+        //获取所有数据
+        public FootballMatch[] GetAll()
         {
             DataTable table = SqlHelper.ExecuteDataTable("select * from T_match");
-            List<FootballMatch> all=new List<FootballMatch>();
-            foreach (DataRow row in table.Rows)                
+            FootballMatch[] all = new FootballMatch[table.Rows.Count];
+            for(int i=0;i<table.Rows.Count;++i)                           
             {
-                all.Add(To_Football(row));
+                DataRow row = table.Rows[i];
+                all[i]=To_Football(row);
             }
             return all;
         }

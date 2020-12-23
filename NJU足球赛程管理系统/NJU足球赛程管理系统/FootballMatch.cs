@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace NJU足球赛程管理系统
 {
-    class FootballMatch:INotifyPropertyChanged
+    class FootballMatch//:INotifyPropertyChanged
     {
         //对于可空列，要注意int?的问题
         public long ID { get; set; }
@@ -53,7 +53,7 @@ namespace NJU足球赛程管理系统
         //        }
         //    }
         //}
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
     }
 
 

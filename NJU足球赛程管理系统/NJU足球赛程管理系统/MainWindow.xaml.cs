@@ -27,7 +27,7 @@ namespace NJU足球赛程管理系统
             InitializeComponent();          
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_connect_test(object sender, RoutedEventArgs e)
         {
             //这里是测试连接按钮点击事件，目的是检测数据库连接是否正常
 
@@ -54,22 +54,7 @@ namespace NJU足球赛程管理系统
                 MessageBox.Show("数据库连接失败！\n程序将无法提供正常服务，请谅解！\n\n您也可以按以下信息排查错误：\n" + ex.Message, "连接状态通报", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //这里是增加按钮点击事件
-            //跳转到其他页面
-            //AddWindow aw = new AddWindow();
-            //this.Hide();
-            //aw.ShowDialog();
-            //this.Show();
-
-            long count = Football_MatchDAL.Get_Count();
-            MessageBox.Show(count.ToString());
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_enter(object sender, RoutedEventArgs e)
         {
             //这里是查询按钮点击事件
             //跳转到其他页面
@@ -79,24 +64,8 @@ namespace NJU足球赛程管理系统
             this.Show();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            //这里是修改按钮点击事件
-            //跳转到其他页面
-            //ModifyWindow mw = new ModifyWindow();
-            //this.Hide();
-            //mw.ShowDialog();
-            //this.Show();
-        }
+     
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            //这里是删除按钮点击事件
-            //跳转到其他页面
-            //DeleteWindow dw = new DeleteWindow();
-            //this.Hide();
-            //dw.ShowDialog();
-            //this.Show();
-        }
+       
     }
 }
