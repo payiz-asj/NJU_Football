@@ -9,5 +9,27 @@
         WindowState="Normal" ShowInTaskbar="True" ResizeMode="CanMinimize" Icon = "./images/zuqiu.png" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
         
         >
-    <Grid />
+    <Grid>
+        <DockPanel>
+            <ToolBar DockPanel.Dock="Top" Height="40">
+                <Button x:Name="btnAdd">
+                    <Image Source="./images/zengjia.png"></Image>
+                </Button>
+                <Button x:Name="btnEdit">
+                    <Image Source="./images/xiugai.png"></Image>
+                </Button>
+                <Button x:Name="btnDelete">
+                    <Image Source="./images/shanchu.png"></Image>
+                </Button>
+            </ToolBar>
+            <DataGrid DockPanel.Dock="Top"></DataGrid>
+        </DockPanel>
+    </Grid>
+
+
+
+
+
+
+
 </Window>
