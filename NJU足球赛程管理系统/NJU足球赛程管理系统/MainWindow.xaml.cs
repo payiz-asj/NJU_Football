@@ -63,6 +63,10 @@ namespace NJU足球赛程管理系统
             //this.Hide();
             //aw.ShowDialog();
             //this.Show();
+
+            long count = Football_MatchDAL.Get_Count();
+            MessageBox.Show(count.ToString());
+
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

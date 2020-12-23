@@ -24,13 +24,13 @@
             </ToolBar>
             <DataGrid IsReadOnly="True" DockPanel.Dock="Top">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="比赛类型" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="比赛轮次" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="比赛日期" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="比赛时间" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="比赛场地" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="比赛队伍一" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="比赛队伍二" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛类型" Width="100" Binding="{Binding match_type}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛轮次" Width="100" Binding="{Binding match_order}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛日期" Width="100" Binding="{Binding match_day}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛时间" Width="100" Binding="{Binding match_time}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛场地" Width="100" Binding="{Binding match_ground}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛队伍一" Width="150" Binding="{Binding team_one}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="比赛队伍二" Width="150" Binding="{Binding team_one}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
