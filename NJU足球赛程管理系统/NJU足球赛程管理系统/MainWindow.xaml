@@ -40,12 +40,12 @@
 
         <Button x:Name="btn_enter"  ToolTip="进入赛程列表" Style="{StaticResource start_button_style}" HorizontalAlignment="Left" Margin="271,272,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_enter"  IsDefault="True">
             <Button.Background>
-                <ImageBrush ImageSource="jinru.png"/>
+                <ImageBrush ImageSource="./images/jinru.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="btn_connect_test" ToolTip="数据库连接测试"  Style="{StaticResource start_button_style}" HorizontalAlignment="Left" Margin="166,342,0,0" VerticalAlignment="Top" FontFamily="宋体" FontSize="22" FontWeight="Bold" Height="80" Width="80" Click="Button_Click_connect_test" >
             <Button.Background>
-                <ImageBrush ImageSource="images/lianjie.png"/>
+                <ImageBrush ImageSource="./images/lianjie.png"/>
             </Button.Background>
         </Button>     
 

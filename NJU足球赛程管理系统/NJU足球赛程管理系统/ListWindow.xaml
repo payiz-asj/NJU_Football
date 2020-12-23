@@ -11,7 +11,7 @@
         >
     <Grid>
         <DockPanel>
-            <Rectangle DockPanel.Dock="Top" Height="100">
+            <Rectangle DockPanel.Dock="Top" Height="100" ToolTip="愿球王安息❤">
                 <Rectangle.Fill>
                     <ImageBrush ImageSource="./images/maradona.png" Stretch="UniformToFill"/>
                 </Rectangle.Fill>

@@ -86,5 +86,25 @@ namespace NJU足球赛程管理系统
                 grid_items.ItemsSource = dal.GetAll();
             }
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            //FootballMatch chosen_one = (FootballMatch)grid_items.SelectedItem;
+            //if (chosen_one == null)
+            //{
+            //    MessageBox.Show("请选择要删除的一行", "提醒", MessageBoxButton.OK, MessageBoxImage.Information);
+            //    return;
+            //}
+            //if (MessageBox.Show("确认删除这条数据吗？", "提醒", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            //{
+            //    Football_MatchDAL.DeleteById(chosen_one.ID);
+            //    //更新列表
+            //    Football_MatchDAL dal = new Football_MatchDAL();
+            //    grid_items.ItemsSource = dal.GetAll();
+            //}
+        }
+        
+
+
     }
 }
