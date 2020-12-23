@@ -32,14 +32,12 @@ namespace NJU足球赛程管理系统
             //创建SqlConnection的实例
             try
             {
+                //using 关键字是用来自动释放资源
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     //打开数据库连接
                     conn.Open();
-                    //MessageBox.Show("数据库连接成功！开始探索吧！", "连接状态通报", MessageBoxButton.OK, MessageBoxImage.Information);
-                    System.Data.ConnectionState st = conn.State;
-                   
-
+                    //MessageBox.Show("数据库连接成功！开始探索吧！", "连接状态通报", MessageBoxButton.OK, MessageBoxImage.Information);  
                 }
             }
             catch (Exception ex)

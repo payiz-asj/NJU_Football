@@ -36,7 +36,13 @@
 
 	解决方案：我将服务器名改成Sql Server 2018中服务器属性中的名字（我的笔记本电脑的名字+SQLEXPRESS）才连接成功。例如：LAPTOP-AGT30UAM\\SQLEXPRESS
 
-	参考网址：http://c.biancheng.net/view/3010.html
+	参考网址：
+	http://c.biancheng.net/view/3010.html
+	https://blog.csdn.net/yenange/article/details/77026214
+	https://www.bilibili.com/video/BV1Wt411Z76N?p=15
+
+	此外，链接数据库，进行数据库语句执行时，一定要注意异常处理和资源释放的问题！
+	可以使用try catch ,但更推荐用using关键字来释放资源！（非常重要！非常重要！非常重要！）
 
 坑02：
 	

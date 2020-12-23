@@ -38,6 +38,7 @@ namespace NJU足球赛程管理系统
             //创建SqlConnection的实例
             try
             {
+                //using 关键字是用来自动释放资源
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     //打开数据库连接
