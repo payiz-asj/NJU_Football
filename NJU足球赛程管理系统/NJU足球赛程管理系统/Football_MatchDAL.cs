@@ -133,35 +133,78 @@ namespace NJU足球赛程管理系统
         }
         //获取与实参非空属性匹配的数据
         public FootballMatch[] Get_ByNoEmpty(FootballMatch one_match)
-        {
-            string sql = "select * from T_match";
-            string cond = "";
-            string par = "";
-            List<string> conditions = new List<string>();
-            List<string> param_strs = new List<string>();
-            
+        {            
+            //这个函数能够从数据库多条件查询，这些条件来自形参中不为空的项
+            //下面两个数组记录查询的条件列表
+            string[] conditions = new string[99];
+            SqlParameter[] param_list = new SqlParameter[99];
+            int count = 0;            
             bool is_where = false;
             //查询语句包含match_type
             if (one_match.match_type != "")
             {
                 is_where = true;
-                conditions.Add("match_type = @match_type");
-                param_strs.Add("new SqlParameter(\"@match_type\", match_type)");
+                conditions[count]="match_type = @match_type";
+                param_list[count] = new SqlParameter("@match_type", one_match.match_type);
+                count++;
             }
-
-           
-            if(is_where)
+            if(one_match.match_order!="")
             {
-                for (int i=0;i<conditions.Count-1;++i)
-                {
-                    cond += conditions[i]+",";
-                    par += param_strs[i] + ",";
-                }
-                sql += conditions[conditions.Count - 1] +","+ param_strs[conditions.Count - 1];
+                is_where = true;
+                conditions[count] = "match_order = @match_order";
+                param_list[count] = new SqlParameter("@match_order", one_match.match_order);
+                count++;
+            }
+            if (one_match.match_order != "")
+            {
+                is_where = true;
+                conditions[count] = "match_order = @match_order";
+                param_list[count] = new SqlParameter("@match_order", one_match.match_order);
+                count++;
+            }
+
+            if (one_match.match_day != null)
+            {
+                is_where = true;
+                conditions[count] = "match_day = @match_day";
+                param_list[count] = new SqlParameter("@match_day", ToDBValue(one_match.match_day));
+                count++;
+            }
+            if (one_match.match_ground != "")
+            {
+                is_where = true;
+                conditions[count] = "match_ground = @match_ground";
+                param_list[count] = new SqlParameter("@match_ground", one_match.match_ground);
+                count++;
+            }
+            if (one_match.team_one != "")
+            {
+                is_where = true;
+                conditions[count] = "team_one = @team_one";
+                param_list[count] = new SqlParameter("@team_one", one_match.team_one);
+                count++;
+            }
+            if (one_match.team_two != "")
+            {
+                is_where = true;
+                conditions[count] = "team_two = @team_two";
+                param_list[count] = new SqlParameter("@team_two", one_match.team_two);
+                count++;
             }
 
 
-            DataTable table = SqlHelper.ExecuteDataTable(sql);
+            //开始创建数据库查询语句
+            string sql = "";
+            if (is_where)
+            {
+                sql = "select * from T_match where ";
+                for (int i=0;i<count;++i)
+                    sql += i == 0 ? conditions[i] : " and " + conditions[i];                
+            }
+            else
+                sql = "select * from T_match ";
+           
+            DataTable table = SqlHelper.ExecuteDataTable_2(sql,param_list,count);
             FootballMatch[] all = new FootballMatch[table.Rows.Count];
             for (int i = 0; i < table.Rows.Count; ++i)
             {

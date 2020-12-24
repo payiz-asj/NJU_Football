@@ -89,6 +89,30 @@ namespace NJU足球赛程管理系统
                 }
             }
         }
+        //上面这个多条件查询的List版本，这个在自定义多条件查询时会用到的
+        public static DataTable ExecuteDataTable_2(string sql, SqlParameter[] parameters,int n)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = sql;
+                    //更高级
+                    for (int i = 0; i < n; ++i)
+                        cmd.Parameters.Add(parameters[i]);                   
+                    //SqlDataAdapter是一个帮我们将SqlCommand查询到的结果填充到DataSet中的类
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    //DataSet是一个本地非常复杂的集合/容器（类似于List）
+                    DataSet dataset = new DataSet();
+                    //执行填充
+                    adapter.Fill(dataset);
+                    return dataset.Tables[0];
+                }
+            }
+        }
+
     }
 
 
