@@ -26,7 +26,7 @@ namespace NJU足球赛程管理系统
                 new SqlParameter("@Id", id));
         }
 
-        public static object ToDBValue(object value)
+        public static object ToDBValue(DateTime? value)
         {
             //这是处理NULL的值插入时出错的情况
             if (value == null)
@@ -34,7 +34,11 @@ namespace NJU足球赛程管理系统
                 return DBNull.Value;
             }
             else
-                return value;
+            {
+                DateTime d = (DateTime)value;//这里日期是非null，但是我只想要日期，不要时间
+                return d.Date;
+            }
+                
         }
 
         //插入一条数据,因为列很多，所以形参为一个FootballMatch类
@@ -89,7 +93,7 @@ namespace NJU足球赛程管理系统
                 one_match.match_day = null;
             else
             {
-                DateTime d = (DateTime)row["match_day"];
+                DateTime d = (DateTime)row["match_day"];//这里日期是非null，但是我只想要日期，不要时间
                 one_match.match_day = d.Date;
             }
             return one_match;
@@ -114,8 +118,6 @@ namespace NJU足球赛程管理系统
                 DataRow row = table.Rows[0];
                 return To_Football(row);
             }
-
-
         }
         //获取所有数据
         public FootballMatch[] GetAll()
@@ -139,12 +141,14 @@ namespace NJU足球赛程管理系统
             List<string> param_strs = new List<string>();
             
             bool is_where = false;
+            //查询语句包含match_type
             if (one_match.match_type != "")
             {
                 is_where = true;
                 conditions.Add("match_type = @match_type");
                 param_strs.Add("new SqlParameter(\"@match_type\", match_type)");
             }
+
            
             if(is_where)
             {

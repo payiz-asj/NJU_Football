@@ -66,8 +66,7 @@ namespace NJU足球赛程管理系统
                 FootballMatch one_match = new FootballMatch();
                 one_match.match_type = txt_type.Text;
                 one_match.match_order = txt_order.Text;
-                DateTime d = (DateTime)date_date.SelectedDate;
-                one_match.match_day = d.Date;
+                one_match.match_day = date_date.SelectedDate;
                 one_match.match_time = txt_time.Text;
                 one_match.match_ground = txt_ground.Text;
                 one_match.team_one = txt_team_one.Text;
@@ -78,9 +77,8 @@ namespace NJU足球赛程管理系统
             {
                 FootballMatch one_match = new FootballMatch();
                 one_match.match_type = txt_type.Text;
-                one_match.match_order = txt_order.Text;
-                DateTime d = (DateTime)date_date.SelectedDate;
-                one_match.match_day = d.Date;
+                one_match.match_order = txt_order.Text;                
+                one_match.match_day = date_date.SelectedDate;
                 one_match.match_time = txt_time.Text;
                 one_match.match_ground = txt_ground.Text;
                 one_match.team_one= txt_team_one.Text;
@@ -92,8 +90,7 @@ namespace NJU足球赛程管理系统
                 FootballMatch one_match = new Football_MatchDAL().Get_ByID(EditingID);
                 one_match.match_type = txt_type.Text;
                 one_match.match_order = txt_order.Text;
-                DateTime d = (DateTime)date_date.SelectedDate;
-                one_match.match_day = d.Date;
+                one_match.match_day = date_date.SelectedDate;
                 one_match.match_time = txt_time.Text;
                 one_match.match_ground = txt_ground.Text;
                 one_match.team_one = txt_team_one.Text;
