@@ -22,6 +22,8 @@ namespace NJU足球赛程管理系统
     /// </summary>
     public partial class MainWindow : Window
     {
+        //公开属性,用来标识数据库能否正常连接
+        public bool is_connected_to_sql_server { get; set; }
         public MainWindow()
         {
             InitializeComponent();  
@@ -47,6 +49,7 @@ namespace NJU足球赛程管理系统
                 {
                     //打开数据库连接
                     conn.Open();
+                    is_connected_to_sql_server = true;
                     MessageBox.Show("数据库连接成功！开始探索吧！","连接状态通报", MessageBoxButton.OK,MessageBoxImage.Information);
                 }
             }
@@ -59,7 +62,8 @@ namespace NJU足球赛程管理系统
         {
             //这里是查询按钮点击事件
             //跳转到其他页面
-            ListWindow sw = new ListWindow();            
+            ListWindow sw = new ListWindow();
+            sw.is_connected_to_sql_server = this.is_connected_to_sql_server;
             this.Hide();
             sw.ShowDialog();
             this.Show();

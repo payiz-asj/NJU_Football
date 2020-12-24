@@ -20,9 +20,8 @@ namespace NJU足球赛程管理系统
     /// </summary>
     public partial class ListWindow : Window
     {
-        FootballMatch match1 = new FootballMatch();
-
-       
+        //公开属性,用来标识数据库能否正常连接
+        public bool is_connected_to_sql_server { get; set; }
 
         public ListWindow()
         {   
@@ -33,16 +32,31 @@ namespace NJU足球赛程管理系统
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //窗口加载函数
-            Football_MatchDAL dal = new Football_MatchDAL();
-            grid_items.ItemsSource = dal.GetAll();
-
-
+            if (is_connected_to_sql_server)
+            {
+                Football_MatchDAL dal = new Football_MatchDAL();
+                grid_items.ItemsSource = dal.GetAll();
+            }
+            else
+            {
+                MessageBox.Show("再次提醒一下\n数据库连接失败状态下是无法正常使用本程序，\n温馨提示：您可以在本程序App.config文件里修改数据库连接字段，\n祝您好运！" , "连接状态通报", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            EditWindow ed = new EditWindow();
+            ed.cmd_type = 1;
+            if (ed.ShowDialog() == true)
+            {
+                //更新列表
+                Football_MatchDAL dal = new Football_MatchDAL();
+                grid_items.ItemsSource = dal.GetAll();
+            }
+        }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             EditWindow ed = new EditWindow();
-            ed.Isinsert = true;
+            ed.cmd_type = 2;
             if (ed.ShowDialog() == true)
             {
                 //更新列表
@@ -60,7 +74,7 @@ namespace NJU足球赛程管理系统
                 return;
             }
             EditWindow ed = new EditWindow();
-            ed.Isinsert = false;
+            ed.cmd_type = 3;
             ed.EditingID = chosen_one.ID;
             if (ed.ShowDialog() == true)
             {
@@ -69,7 +83,6 @@ namespace NJU足球赛程管理系统
                 grid_items.ItemsSource = dal.GetAll();
             }
         }
-
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             FootballMatch chosen_one = (FootballMatch)grid_items.SelectedItem;
@@ -85,26 +98,7 @@ namespace NJU足球赛程管理系统
                 Football_MatchDAL dal = new Football_MatchDAL();
                 grid_items.ItemsSource = dal.GetAll();
             }
-        }
-
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            //FootballMatch chosen_one = (FootballMatch)grid_items.SelectedItem;
-            //if (chosen_one == null)
-            //{
-            //    MessageBox.Show("请选择要删除的一行", "提醒", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    return;
-            //}
-            //if (MessageBox.Show("确认删除这条数据吗？", "提醒", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
-            //{
-            //    Football_MatchDAL.DeleteById(chosen_one.ID);
-            //    //更新列表
-            //    Football_MatchDAL dal = new Football_MatchDAL();
-            //    grid_items.ItemsSource = dal.GetAll();
-            //}
-        }
-        
-
+        } 
 
     }
 }

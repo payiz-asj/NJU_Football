@@ -19,8 +19,8 @@ namespace NJU足球赛程管理系统
     /// </summary>
     public partial class EditWindow : Window
     {
-        //是:新增,否：修改
-        public bool Isinsert { get; set; }
+        //命令的类型:  1.查询select   2. 新增insert  3：修改update
+        public int cmd_type { get; set; }
         //是否修改
         public long EditingID { get; set; }
 
@@ -31,12 +31,17 @@ namespace NJU足球赛程管理系统
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if(Isinsert)
+            if(cmd_type==1)
             {
-
+                //查询，不用显示
+            }
+            else if(cmd_type==2)
+            {
+                //新增，不用显示
             }
             else
             {
+                //修改，需要显示
                 FootballMatch one_match = new Football_MatchDAL().Get_ByID(EditingID);
                 txt_type.Text = one_match.match_type;
                 txt_order.Text = one_match.match_order;
@@ -56,12 +61,26 @@ namespace NJU足球赛程管理系统
 
         private void Button_Click_save(object sender, RoutedEventArgs e)
         {
-            if(Isinsert)
+            if(cmd_type == 1)
             {
                 FootballMatch one_match = new FootballMatch();
                 one_match.match_type = txt_type.Text;
                 one_match.match_order = txt_order.Text;
-                one_match.match_day = date_date.SelectedDate;
+                DateTime d = (DateTime)date_date.SelectedDate;
+                one_match.match_day = d.Date;
+                one_match.match_time = txt_time.Text;
+                one_match.match_ground = txt_ground.Text;
+                one_match.team_one = txt_team_one.Text;
+                one_match.team_two = txt_team_two.Text;
+                new Football_MatchDAL().Get_ByNoEmpty(one_match);
+            }
+            else if(cmd_type==2)
+            {
+                FootballMatch one_match = new FootballMatch();
+                one_match.match_type = txt_type.Text;
+                one_match.match_order = txt_order.Text;
+                DateTime d = (DateTime)date_date.SelectedDate;
+                one_match.match_day = d.Date;
                 one_match.match_time = txt_time.Text;
                 one_match.match_ground = txt_ground.Text;
                 one_match.team_one= txt_team_one.Text;
@@ -73,7 +92,8 @@ namespace NJU足球赛程管理系统
                 FootballMatch one_match = new Football_MatchDAL().Get_ByID(EditingID);
                 one_match.match_type = txt_type.Text;
                 one_match.match_order = txt_order.Text;
-                one_match.match_day = date_date.SelectedDate;
+                DateTime d = (DateTime)date_date.SelectedDate;
+                one_match.match_day = d.Date;
                 one_match.match_time = txt_time.Text;
                 one_match.match_ground = txt_ground.Text;
                 one_match.team_one = txt_team_one.Text;

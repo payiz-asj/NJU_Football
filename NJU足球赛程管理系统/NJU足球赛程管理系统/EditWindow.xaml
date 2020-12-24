@@ -23,8 +23,8 @@
         <TextBox x:Name="txt_team_two" HorizontalAlignment="Left" Height="36" Margin="141,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20" Text="队伍二"/>
         <DatePicker x:Name="date_date" HorizontalAlignment="Left" Margin="141,215,0,0" VerticalAlignment="Top" Height="36" Width="246" FontFamily="宋体" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="btn_save" Content="保存" HorizontalAlignment="Left" Margin="469,492,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_save" Background="#FF04E22D"/>
-        <Button x:Name="btn_cancel" Content="取消" HorizontalAlignment="Left" Margin="648,492,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_cansel" Background="#FFF50505"/>
+        <Button x:Name="btn_save" Content="保存" HorizontalAlignment="Left" Margin="469,492,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_save" Background="#FF04E22D" IsDefault="True"/>
+        <Button x:Name="btn_cancel" Content="取消" HorizontalAlignment="Left" Margin="648,492,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_cansel" Background="#FFF50505" IsCancel="True"/>
         <Image HorizontalAlignment="Left" Height="408" Margin="448,58,0,0" VerticalAlignment="Top" Width="312"/>
 
     </Grid>

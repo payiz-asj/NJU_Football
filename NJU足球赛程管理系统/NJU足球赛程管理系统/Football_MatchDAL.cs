@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows;
 
 namespace NJU足球赛程管理系统
 {
@@ -87,8 +88,10 @@ namespace NJU足球赛程管理系统
             if (row["match_day"] == DBNull.Value)
                 one_match.match_day = null;
             else
-                one_match.match_day = (DateTime)row["match_day"];
-           
+            {
+                DateTime d = (DateTime)row["match_day"];
+                one_match.match_day = d.Date;
+            }
             return one_match;
         }
 
@@ -126,8 +129,43 @@ namespace NJU足球赛程管理系统
             }
             return all;
         }
+        //获取与实参非空属性匹配的数据
+        public FootballMatch[] Get_ByNoEmpty(FootballMatch one_match)
+        {
+            string sql = "select * from T_match";
+            string cond = "";
+            string par = "";
+            List<string> conditions = new List<string>();
+            List<string> param_strs = new List<string>();
+            
+            bool is_where = false;
+            if (one_match.match_type != "")
+            {
+                is_where = true;
+                conditions.Add("match_type = @match_type");
+                param_strs.Add("new SqlParameter(\"@match_type\", match_type)");
+            }
+           
+            if(is_where)
+            {
+                for (int i=0;i<conditions.Count-1;++i)
+                {
+                    cond += conditions[i]+",";
+                    par += param_strs[i] + ",";
+                }
+                sql += conditions[conditions.Count - 1] +","+ param_strs[conditions.Count - 1];
+            }
 
 
+            DataTable table = SqlHelper.ExecuteDataTable(sql);
+            FootballMatch[] all = new FootballMatch[table.Rows.Count];
+            for (int i = 0; i < table.Rows.Count; ++i)
+            {
+                DataRow row = table.Rows[i];
+                all[i] = To_Football(row);
+            }
+            return all;
+        }
 
 
     }
