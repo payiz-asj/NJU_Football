@@ -28,7 +28,7 @@
                 </Button>
                 <Button x:Name="btnDelete" Click="btnDelete_Click" ToolTip="删除">
                     <Image Source="./images/shanchu.png"></Image>
-                </Button>
+                </Button>                
             </ToolBar>
             <DataGrid x:Name="grid_items" IsReadOnly="True" AutoGenerateColumns="False" DockPanel.Dock="Top">
                 <DataGrid.Columns>

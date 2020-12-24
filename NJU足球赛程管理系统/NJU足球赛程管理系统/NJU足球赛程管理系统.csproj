@@ -167,5 +167,11 @@
   <ItemGroup>
     <Resource Include="images\jinru.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fanhui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\mc.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

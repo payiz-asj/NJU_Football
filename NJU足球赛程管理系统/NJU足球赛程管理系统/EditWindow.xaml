@@ -9,23 +9,23 @@
         WindowState="Normal" ShowInTaskbar="True" ResizeMode="CanMinimize" Icon = "./images/zuqiu.png" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
         >
     <Grid>
-        <TextBox x:Name="txt_type" HorizontalAlignment="Left" Height="36" Margin="141,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="32,58,0,0" TextWrapping="Wrap" Text="比赛类型" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"/>
-        <TextBox x:Name="txt_order" HorizontalAlignment="Left" Height="36" Margin="141,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="32,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="轮次"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="32,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="时间"/></TextBlock>
-        <TextBox x:Name="txt_time" HorizontalAlignment="Left" Height="36" Margin="141,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="32,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="时间"/></TextBlock>
-        <TextBox x:Name="txt_ground" HorizontalAlignment="Left" Height="36" Margin="141,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="32,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="场地"/></TextBlock>
-        <TextBox x:Name="txt_team_one" HorizontalAlignment="Left" Height="36" Margin="141,430,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="32,430,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20" Text="队伍一"/>
-        <TextBox x:Name="txt_team_two" HorizontalAlignment="Left" Height="36" Margin="141,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="32,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20" Text="队伍二"/>
-        <DatePicker x:Name="date_date" HorizontalAlignment="Left" Margin="141,215,0,0" VerticalAlignment="Top" Height="36" Width="246" FontFamily="宋体" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="btn_save" Content="保存" HorizontalAlignment="Left" Margin="469,492,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_save" Background="#FF04E22D" IsDefault="True"/>
-        <Button x:Name="btn_cancel" Content="取消" HorizontalAlignment="Left" Margin="648,492,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_cansel" Background="#FFF50505" IsCancel="True"/>
-        <Image HorizontalAlignment="Left" Height="408" Margin="448,58,0,0" VerticalAlignment="Top" Width="312"/>
+        <TextBox x:Name="txt_type" HorizontalAlignment="Left" Height="36" Margin="141,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,46,0,0" TextWrapping="Wrap" Text="比赛类型" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"/>
+        <TextBox x:Name="txt_order" HorizontalAlignment="Left" Height="36" Margin="141,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="轮次"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="32,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="时间"/></TextBlock>
+        <TextBox x:Name="txt_time" HorizontalAlignment="Left" Height="36" Margin="141,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="时间"/></TextBlock>
+        <TextBox x:Name="txt_ground" HorizontalAlignment="Left" Height="36" Margin="141,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20"><Run Text="比赛"/><Run Text="场地"/></TextBlock>
+        <TextBox x:Name="txt_team_one" HorizontalAlignment="Left" Height="36" Margin="141,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20" Text="队伍一"/>
+        <TextBox x:Name="txt_team_two" HorizontalAlignment="Left" Height="36" Margin="141,481,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontFamily="宋体" FontWeight="Bold" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,481,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="107" FontFamily="宋体" FontWeight="Bold" FontSize="20" Text="队伍二"/>
+        <DatePicker x:Name="date_date" HorizontalAlignment="Left" Margin="141,203,0,0" VerticalAlignment="Top" Height="36" Width="246" FontFamily="宋体" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btn_save" Content="保存" HorizontalAlignment="Left" Margin="469,480,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_save" Background="#FF04E22D" IsDefault="True"/>
+        <Button x:Name="btn_cancel" Content="取消" HorizontalAlignment="Left" Margin="648,480,0,0" VerticalAlignment="Top" Width="112" FontFamily="宋体" FontWeight="Bold" FontSize="24" Height="35" Click="Button_Click_cansel" Background="#FFF50505" IsCancel="True"/>
+        <Image HorizontalAlignment="Left" Height="408" Margin="469,46,0,0" VerticalAlignment="Top" Width="291" Source="./images/mc.png"/>
 
     </Grid>
 </Window>
