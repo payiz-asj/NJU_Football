@@ -90,7 +90,7 @@ namespace NJU足球赛程管理系统
             }
         }
         //上面这个多条件查询的List版本，这个在自定义多条件查询时会用到的
-        public static DataTable ExecuteDataTable_2(string sql, SqlParameter[] parameters,int n)
+        public static DataTable ExecuteDataTable_multi_conditions(string sql, SqlParameter[] parameters,int n)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {

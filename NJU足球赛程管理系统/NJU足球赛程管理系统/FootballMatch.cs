@@ -55,6 +55,4 @@ namespace NJU足球赛程管理系统
         //}
         //public event PropertyChangedEventHandler PropertyChanged;
     }
-
-
 }

@@ -154,20 +154,20 @@ namespace NJU足球赛程管理系统
                 conditions[count] = "match_order = @match_order";
                 param_list[count] = new SqlParameter("@match_order", one_match.match_order);
                 count++;
-            }
-            if (one_match.match_order != "")
-            {
-                is_where = true;
-                conditions[count] = "match_order = @match_order";
-                param_list[count] = new SqlParameter("@match_order", one_match.match_order);
-                count++;
-            }
+            }           
 
             if (one_match.match_day != null)
             {
                 is_where = true;
                 conditions[count] = "match_day = @match_day";
                 param_list[count] = new SqlParameter("@match_day", ToDBValue(one_match.match_day));
+                count++;
+            }
+            if (one_match.match_time != "")
+            {
+                is_where = true;
+                conditions[count] = "match_time = @match_time";
+                param_list[count] = new SqlParameter("@match_time", one_match.match_time);
                 count++;
             }
             if (one_match.match_ground != "")
@@ -204,16 +204,15 @@ namespace NJU足球赛程管理系统
             else
                 sql = "select * from T_match ";
            
-            DataTable table = SqlHelper.ExecuteDataTable_2(sql,param_list,count);
+            DataTable table = SqlHelper.ExecuteDataTable_multi_conditions(sql,param_list,count);
             FootballMatch[] all = new FootballMatch[table.Rows.Count];
             for (int i = 0; i < table.Rows.Count; ++i)
             {
                 DataRow row = table.Rows[i];
                 all[i] = To_Football(row);
             }
+
             return all;
         }
-
-
     }
 }

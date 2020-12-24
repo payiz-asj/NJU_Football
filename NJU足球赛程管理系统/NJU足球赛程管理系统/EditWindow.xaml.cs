@@ -12,17 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace NJU足球赛程管理系统
 {
     /// <summary>
     /// EditWindow.xaml 的交互逻辑
     /// </summary>
+    
     public partial class EditWindow : Window
     {
         //命令的类型:  1.查询select   2. 新增insert  3：修改update
         public int cmd_type { get; set; }
         //是否修改
         public long EditingID { get; set; }
+        //查询到的数据
+        //public list_of_FootballMatch all_found = new list_of_FootballMatch();    //这里出问题了，只能退而求次用下面的方法
+        //具体原因是无法将一个FootballMatch类的数组设置为Public属性，或者用public函数返回
+        //要查询的几个字段，用来在外面ListWindow里再调用数据库查询！！！（我真的没其他办法了）
+        public string[] temp_strings = new string[6];
+        public DateTime? temp_date = new DateTime();
 
         public EditWindow()
         {
@@ -63,15 +71,23 @@ namespace NJU足球赛程管理系统
         {
             if(cmd_type == 1)
             {
-                FootballMatch one_match = new FootballMatch();
-                one_match.match_type = txt_type.Text;
-                one_match.match_order = txt_order.Text;
-                one_match.match_day = date_date.SelectedDate;
-                one_match.match_time = txt_time.Text;
-                one_match.match_ground = txt_ground.Text;
-                one_match.team_one = txt_team_one.Text;
-                one_match.team_two = txt_team_two.Text;
-                new Football_MatchDAL().Get_ByNoEmpty(one_match);
+                //FootballMatch one_match = new FootballMatch();
+                //one_match.match_type = txt_type.Text;
+                //one_match.match_order = txt_order.Text;
+                //one_match.match_day = date_date.SelectedDate;
+                //one_match.match_time = txt_time.Text;
+                //one_match.match_ground = txt_ground.Text;
+                //one_match.team_one = txt_team_one.Text;
+                //one_match.team_two = txt_team_two.Text;
+                //all_found.AddRange(new Football_MatchDAL().Get_ByNoEmpty(one_match));
+                temp_strings[0] = txt_type.Text;
+                temp_strings[1] = txt_order.Text;
+                temp_strings[2] = txt_time.Text;
+                temp_strings[3] = txt_ground.Text;
+                temp_strings[4] = txt_team_one.Text;
+                temp_strings[5] = txt_team_two.Text;
+                temp_date= date_date.SelectedDate;
+                //真正的查询将在外面的ListWindow中实现
             }
             else if(cmd_type==2)
             {

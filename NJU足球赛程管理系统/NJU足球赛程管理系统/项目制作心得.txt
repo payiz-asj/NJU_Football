@@ -97,7 +97,15 @@
 	Sql Server中填入数据时直接从Exel表格中导入
 
 	解决方案：
-	非常简单，所以就放一下我参考的网址：https://blog.csdn.net/marko_zheng/article/details/86005538
+	非常简单，所以就放一下我参考的网址：
+	https://blog.csdn.net/marko_zheng/article/details/86005538
+	https://www.cnblogs.com/lzhc/p/8568500.html
+	https://docs.microsoft.com/zh-cn/sql/integration-services/import-export-data/connect-to-an-excel-data-source-sql-server-import-and-export-wizard?view=sql-server-ver15
+
+	如果连接exel出错，可以安装：Microsoft.ACE.OLEDB.16.0
+	请确保已下载 Access 数据库引擎 2016 可再发行组件，而不是 Microsoft Access 2016 Runtime 。
+	下载网址：https://docs.microsoft.com/zh-cn/sql/integration-services/load-data-to-from-excel-with-ssis?view=sql-server-ver15#files-you-need
+
 
 坑05：
 	这个可以说是本次项目目前最大的坑了！

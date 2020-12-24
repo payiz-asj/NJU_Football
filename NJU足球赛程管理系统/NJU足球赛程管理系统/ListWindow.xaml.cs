@@ -48,9 +48,18 @@ namespace NJU足球赛程管理系统
             ed.cmd_type = 1;
             if (ed.ShowDialog() == true)
             {
-                //更新列表
-                Football_MatchDAL dal = new Football_MatchDAL();
-                grid_items.ItemsSource = dal.GetAll();
+                //实现查询并更新列表
+                FootballMatch one_match = new FootballMatch();
+                one_match.match_type = ed.temp_strings[0];
+                one_match.match_order = ed.temp_strings[1];
+                one_match.match_day = ed.temp_date;
+                one_match.match_time = ed.temp_strings[2];
+                one_match.match_ground = ed.temp_strings[3];
+                one_match.team_one = ed.temp_strings[4];
+                one_match.team_two = ed.temp_strings[5];
+                //这里才是查询真正被调用的地方，调用了多条件查询
+                grid_items.ItemsSource=new Football_MatchDAL().Get_ByNoEmpty(one_match);
+               
             }
         }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
